@@ -1,10 +1,13 @@
-# EX01 Developing a Simple Webserver
-## Date:
+# EX-01-Developing a Simple Webserver.
+### Developed By: Loshini.G
+### Register No: 21222320051
+### Date:
 
 ## AIM:
 To develop a simple webserver to display the configuration details of my laptop.
 
 ## DESIGN STEPS:
+
 ### Step 1: 
 HTML content creation.
 
@@ -22,35 +25,84 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
-from http.server import HTTPServer,BaseHTTPRequestHandler
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
-content='''
-<!doctype html>
+content = '''
+<!DOCTYPE html>
 <html>
-<head>
-<title> My Web Server</title>
-</head>
-<body>
-<h1>Welcome</h1>
-</body>
+  <head>
+    <title>Loshini 212223220051</title>
+  </head>
+  <body>
+      <h1>My Laptop Configuration</h1>
+      <h2>Loshini 212223220051</h2>
+      <br>
+      <table align="center" border="2" cellpadding="5">
+        <tr>
+          <th>Specifications</th>
+          <th>Details</th>
+        </tr>
+        <tr>
+          <td>Brand</td>
+          <td>Samsung</td>
+        </tr>
+        <tr>
+          <td>Model Name</td>
+          <td>Galaxy Book 2</td>
+        </tr>
+        <tr>
+          <td>Screen Size</td>
+          <td>15.6</td>
+        </tr>
+        <tr>
+          <td>Harddisk Size</td>
+          <td>512 GB</td>
+        </tr>
+        <tr>
+          <td>CPU Model</td>
+          <td>Others</td>
+        </tr>
+        <tr>
+          <td>RAM Memory Installed Size</td>
+          <td>8 GB</td>
+        </tr>
+        <tr>
+          <td>Operating System</td>
+          <td>Windows 11 Home</td>
+        </tr>
+        <tr>
+          <td>Special Feature</td>
+          <td>Fingerprint Reader</td>
+        </tr>
+        <tr>
+          <td>Graphics Card Description</td>
+          <td>Integrated</td>
+        </tr>
+      </table>
+  </body>
 </html>
 '''
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
-        print("Get request received...")
-        self.send_response(200) 
-        self.send_header("content-type", "text/html")       
+        print("GET request received")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html")
         self.end_headers()
         self.wfile.write(content.encode())
 
-print("This is my webserver") 
-server_address =('',8000)
-httpd = HTTPServer(server_address,MyServer)
+print("This is a web server")
+server_address = ('', 8000)
+httpd = HTTPServer(server_address, MyServer)
 httpd.serve_forever()
 ```
 ## OUTPUT:
 
+### Terminal:
+![image](https://github.com/user-attachments/assets/0c0b963a-b37f-46e9-8929-a4fe664c8e4d)
+
+### Server:
+![Screenshot 2024-09-16 103715](https://github.com/user-attachments/assets/fc6b037c-1724-437c-bbde-e0c4322d7018)
 
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
